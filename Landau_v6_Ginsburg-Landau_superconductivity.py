@@ -10,9 +10,9 @@ from scipy.optimize import nnls
 
 
 
-DEFAULT = "/Users/4c/Desktop/GHQ/data/loto7_4698_k80.csv"
-# DEFAULT = "/Users/4c/Desktop/GHQ/data/loto7_4698_k80_loto_2971.csv"
-# DEFAULT = "/Users/4c/Desktop/GHQ/data/loto7_4698_k80_loto_plus_1727.csv"
+DEFAULT = "/data/loto7_4698_k80.csv"
+# DEFAULT = "/data/loto7_4698_k80_loto_2971.csv"
+# DEFAULT = "/data/loto7_4698_k80_loto_plus_1727.csv"
 
 
 
@@ -508,7 +508,7 @@ if __name__ == "__main__":
 
 
 """
-Ulaz: /Users/4c/Desktop/GHQ/data/loto7_4698_k80.csv; redova=4698
+Ulaz: /data/loto7_4698_k80.csv; redova=4698
 Validacija: 16/48
 Validacija: 32/48
 Validacija: 48/48
@@ -522,16 +522,14 @@ LANDAU V6 GINZBURG-LANDAU: prosek=1.4062; pogodaka 0..7=[10, 24, 24, 6, 0, 0, 0,
 Prethodna kombinacija: prosek=1.2188; pogodaka 0..7=[13, 30, 16, 4, 1, 0, 0, 0]
 Isto polje bez gradijentne sprege: prosek=1.2344; pogodaka 0..7=[11, 33, 16, 3, 0, 1, 0, 0]
 Poslednji red: 4,12,18,28,35,36,37
-SLEDECI RED 4699: 8,10,11,12,13,14,28
+SLEDECI RED 4699: 8,x,11,y,13,z,28
 F=-6.2705353677; iteracija=15
 beta_min=0.00010000; jacina gradijentne sprege=0.392394
 F rangira cele kombinacije. Pretraga je deterministicka; globalni minimum nije potvrden.
 
 
 
-
-
-Ulaz: /Users/4c/Desktop/GHQ/data/loto7_4698_k80_loto_2971.csv; redova=2971
+Ulaz: /data/loto7_4698_k80_loto_2971.csv; redova=2971
 Validacija: 16/48
 Validacija: 32/48
 Validacija: 48/48
@@ -545,16 +543,14 @@ LANDAU V6 GINZBURG-LANDAU: prosek=1.2500; pogodaka 0..7=[18, 20, 19, 6, 1, 0, 0,
 Prethodna kombinacija: prosek=1.2969; pogodaka 0..7=[11, 30, 16, 7, 0, 0, 0, 0]
 Isto polje bez gradijentne sprege: prosek=1.4062; pogodaka 0..7=[13, 23, 20, 5, 3, 0, 0, 0]
 Poslednji red: 18,20,21,24,29,34,38
-SLEDECI RED 2972: 8,11,13,14,15,16,31
+SLEDECI RED 2972: 8,x,13,y,15,z,31
 F=-7.3001379510; iteracija=23
 beta_min=0.00010000; jacina gradijentne sprege=0.616697
 F rangira cele kombinacije. Pretraga je deterministicka; globalni minimum nije potvrden.
 
 
 
-
-
-Ulaz: /Users/4c/Desktop/GHQ/data/loto7_4698_k80_loto_plus_1727.csv; redova=1727
+Ulaz: /data/loto7_4698_k80_loto_plus_1727.csv; redova=1727
 Validacija: 16/48
 Validacija: 32/48
 Validacija: 48/48
@@ -568,45 +564,33 @@ LANDAU V6 GINZBURG-LANDAU: prosek=1.3750; pogodaka 0..7=[10, 26, 23, 4, 1, 0, 0,
 Prethodna kombinacija: prosek=1.2969; pogodaka 0..7=[15, 23, 18, 8, 0, 0, 0, 0]
 Isto polje bez gradijentne sprege: prosek=1.3750; pogodaka 0..7=[9, 29, 20, 5, 1, 0, 0, 0]
 Poslednji red: 4,12,18,28,35,36,37
-SLEDECI RED 1728: 11,12,13,22,27,28,29
+SLEDECI RED 1728: 11,x,13,y,27,z,29
 F=-5.2951783922; iteracija=14
 beta_min=0.00010000; jacina gradijentne sprege=0.380617
 F rangira cele kombinacije. Pretraga je deterministicka; globalni minimum nije potvrden.
 """
-
- 
-
-
 
 
 
 """
 V6 LANDAU.   GINSBURG-LANDAU superconductivity
 
+GINZBURG–LANDAU. Model sa kompleksnim parametrom reda i spregom između delova rasporeda.
 
-Pripremiću zaseban V6 — GINZBURG–LANDAU. Razradiću model sa kompleksnim parametrom reda i spregom između delova rasporeda, pa ga hronološki proveriti na istom fajlu.
+V6 će imati tri dela energije: lokalni parametar reda, stabilizujući član četvrtog stepena i spregu amplituda i faza susednih delova rasporeda. Proverio sam i da zajedničko pomeranje faze ne menja ocenu kombinacije.
 
+Kompleksno polje prošlo je proveru fazne simetrije i uslova stabilnosti. Validacija je završena; proverio sam poslednja 64 kola i poređenje sa istim poljem bez gradijentne sprege.
 
-V6 će imati tri dela energije: lokalni parametar reda, stabilizujući član četvrtog stepena i spregu amplituda i faza susednih delova rasporeda. Proveriću i da zajedničko pomeranje faze ne menja ocenu kombinacije.
-
-
-
-Kompleksno polje prošlo je proveru fazne simetrije i uslova stabilnosti. Validacija je završena; sada se proveravaju poslednja 64 kola i poređenje sa istim poljem bez gradijentne sprege.
-
-
-
-V6 — GINZBURG–LANDAU je završena i proverena.
 Model koristi kompleksni parametar reda, član četvrtog stepena i gradijentnu spregu amplituda i faza. Inspiracija je Ginzburg–Landauova teorija superprovodljivosti.
+
 Predlog za red 4699:
-8, 10, 11, 12, 13, 14, 28
+8, x, 11, y, 13, z, 28
+
 Na poslednja 64 kola:
 Metod	Prosečan broj pogodaka
 V6	1,4062
 Prethodna kombinacija	1,2188
 Isto polje bez gradijentne sprege	1,2344
 
-
-Provereni su fazna simetrija, stabilnost, hronologija, ponovljivost i svih 224 pojedinačnih zamena završne kombinacije. Globalni minimum nije potvrđen.
-
+Proverio sam fazna simetrija, stabilnost, hronologija, ponovljivost i svih 224 pojedinačnih zamena završne kombinacije. Globalni minimum nije potvrđen.
 """
-
